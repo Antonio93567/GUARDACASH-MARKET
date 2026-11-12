@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GuardacashMarket.Views.SettingsPage"
+             BackgroundColor="{StaticResource OnBlack}"
+             Shell.NavBarIsVisible="False">
+    <Grid RowDefinitions="Auto,*">
+        <Grid Grid.Row="0" ColumnDefinitions="Auto,*" Padding="16,16,16,0" ColumnSpacing="10">
+            <Button Text="‹" Style="{StaticResource BtnOutline}" WidthRequest="48" HeightRequest="48" Padding="0" FontSize="22" Clicked="OnBackClicked" />
+            <Label Grid.Column="1" Text="Configuración" Style="{StaticResource PageTitle}" FontSize="24" VerticalOptions="Center" />
+        </Grid>
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="20" Spacing="14">
+
+                <Label Text="Almacenamiento de datos" Style="{StaticResource SectionTitle}" FontSize="16" />
+                <Border Style="{StaticResource CardStyle}">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Carpeta de datos (GuardacashData)" Style="{StaticResource SubSectionTitle}" />
+                        <Label x:Name="FolderLabel" Text="Seleccionar..." Style="{StaticResource Muted}" FontSize="12" />
+                        <Button Text="Cambiar carpeta de datos" Style="{StaticResource BtnOutline}" Clicked="OnChangeFolderClicked" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <Label Text="Preferencias" Style="{StaticResource SectionTitle}" FontSize="16" Margin="0,8,0,0" />
+                <Border Style="{StaticResource CardStyle}">
+                    <Grid RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="6">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Label Text="Modo oscuro" VerticalOptions="Center" />
+                            <Switch Grid.Column="1" IsToggled="True" OnColor="{StaticResource Neon}" ThumbColor="White" />
+                        </Grid>
+                        <BoxView Style="{StaticResource DividerH}" />
+                        <Grid Grid.Row="1" ColumnDefinitions="*,Auto">
+                            <Label Text="Notificaciones" VerticalOptions="Center" />
+                            <Switch Grid.Column="1" IsToggled="True" OnColor="{StaticResource Neon}" ThumbColor="White" />
+                        </Grid>
+                        <BoxView Grid.Row="2" Style="{StaticResource DividerH}" />
+                        <Grid Grid.Row="3" ColumnDefinitions="*,Auto">
+                            <Label Text="Chat con bots" VerticalOptions="Center" />
+                            <Switch Grid.Column="1" IsToggled="True" OnColor="{StaticResource Neon}" ThumbColor="White" />
+                        </Grid>
+                    </Grid>
+                </Border>
+
+                <Label Text="Sobre la app" Style="{StaticResource SectionTitle}" FontSize="16" Margin="0,8,0,0" />
+                <Border Style="{StaticResource CardStyle}">
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="GUARDACASH MARKET" Style="{StaticResource SectionTitle}" FontSize="15" TextColor="{StaticResource Neon}" />
+                        <Label Text="Versión 1.0.0" Style="{StaticResource Muted}" FontSize="12" />
+                        <Label Text="App educativa de autogestión y vinculación comercial para jóvenes emprendedores. Proyecto: Del hobby al negocio · United Solutions Network · UNI CUR Estelí."
+                               Style="{StaticResource Muted}" FontSize="12" />
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

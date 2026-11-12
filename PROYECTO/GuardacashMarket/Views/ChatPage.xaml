@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:GuardacashMarket.Models"
+             x:Class="GuardacashMarket.Views.ChatPage"
+             BackgroundColor="{StaticResource OnBlack}"
+             Shell.NavBarIsVisible="False">
+    <Grid RowDefinitions="Auto,*,Auto">
+        <Grid Grid.Row="0" ColumnDefinitions="Auto,*,Auto" Padding="14,14,14,10" ColumnSpacing="10">
+            <Button Text="‹" Style="{StaticResource BtnOutline}" WidthRequest="46" HeightRequest="46" Padding="0" FontSize="20" Clicked="OnBackClicked" />
+            <VerticalStackLayout Grid.Column="1" Spacing="0" VerticalOptions="Center">
+                <Label x:Name="ContactName" Style="{StaticResource SectionTitle}" FontSize="15" />
+                <Label Text="🤖 Bot activo · responde al instante" Style="{StaticResource Muted}" FontSize="11" />
+            </VerticalStackLayout>
+            <Label Grid.Column="2" Text="🤖" FontSize="24" VerticalOptions="Center" />
+        </Grid>
+
+        <CollectionView Grid.Row="1" x:Name="MsgView" Margin="14,4,14,8" VerticalScrollBarVisibility="Always">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="local:ChatMessage">
+                    <Grid Padding="0,4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="0" Style="{StaticResource CardStyle}"
+                                Padding="12" Margin="0,0,60,0"
+                                HorizontalOptions="Start">
+                            <Border.Triggers>
+                                <DataTrigger TargetType="Border" Binding="{Binding IsUser}" Value="True">
+                                    <Setter Property="BackgroundColor" Value="{StaticResource Cobalt}" />
+                                    <Setter Property="HorizontalOptions" Value="End" />
+                                    <Setter Property="Margin" Value="60,0,0,0" />
+                                </DataTrigger>
+                            </Border.Triggers>
+                            <Label Text="{Binding Text}" TextColor="{StaticResource LightText}" FontSize="14" />
+                        </Border>
+                        <Label Grid.Column="1" Text="{Binding Timestamp, StringFormat='{0:HH:mm}'}"
+                               Style="{StaticResource Muted}" FontSize="10" VerticalOptions="End" Margin="6,0,0,2" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Grid Grid.Row="2" ColumnDefinitions="*,Auto" ColumnSpacing="10" Padding="14,8,14,20"
+              BackgroundColor="{StaticResource Card}">
+            <Entry x:Name="InputEntry" Placeholder="Escribe un mensaje..." Style="{StaticResource NeonEntry}"
+                   Completed="OnSendClicked" />
+            <Button Grid.Column="1" Text="➤" Style="{StaticResource BtnPrimary}" WidthRequest="54"
+                    HeightRequest="54" Padding="0" FontSize="18" Clicked="OnSendClicked" />
+        </Grid>
+    </Grid>
+</ContentPage>

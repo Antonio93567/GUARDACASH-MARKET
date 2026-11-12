@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:GuardacashMarket.Models"
+             x:Class="GuardacashMarket.Views.MessagesPage"
+             BackgroundColor="{StaticResource OnBlack}"
+             Shell.NavBarIsVisible="False">
+    <Grid RowDefinitions="*,Auto">
+        <Grid Grid.Row="0" RowDefinitions="Auto,Auto,*">
+            <Grid ColumnDefinitions="*,Auto" Padding="20,20,20,0">
+                <Label Text="Mensajes" Style="{StaticResource PageTitle}" FontSize="26" />
+                <Button Grid.Column="1" Text="✚" Style="{StaticResource BtnOutline}" WidthRequest="48" HeightRequest="48" Padding="0" FontSize="20" />
+            </Grid>
+
+            <SearchBar Grid.Row="1" Placeholder="Buscar conversaciones..." BackgroundColor="{StaticResource Card}"
+                       TextColor="{StaticResource LightText}" PlaceholderColor="{StaticResource MutedText}" Margin="20,10,20,4" />
+
+            <CollectionView Grid.Row="2" x:Name="ConvosView" Margin="20,8,20,10" SelectionMode="Single"
+                            SelectionChanged="OnConvoSelected">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="local:Conversation">
+                        <Border Style="{StaticResource CardStyle}" Margin="0,0,0,10">
+                            <Grid ColumnDefinitions="Auto,*,Auto,Auto" ColumnSpacing="12">
+                                <Border BackgroundColor="{StaticResource Cobalt}" StrokeThickness="0"
+                                        StrokeShape="RoundRectangle 22" WidthRequest="44" HeightRequest="44"
+                                        Padding="0">
+                                    <Label Text="{Binding OtherInitials}" TextColor="White" FontFamily="PoppinsBold"
+                                           FontSize="14" HorizontalOptions="Center" VerticalOptions="Center" />
+                                </Border>
+                                <VerticalStackLayout Grid.Column="1" Spacing="3" VerticalOptions="Center">
+                                    <Label Text="{Binding OtherName}" Style="{StaticResource SectionTitle}" FontSize="14" />
+                                    <Label Text="{Binding LastMessage}" Style="{StaticResource Muted}" FontSize="12"
+                                           LineBreakMode="TailTruncation" MaxLines="1" />
+                                </VerticalStackLayout>
+                                <Label Grid.Column="3" Text="🤖" FontSize="16" VerticalOptions="Center" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+
+        <Grid Grid.Row="1" ColumnDefinitions="*,*,*,*,*" Padding="8,10,8,18" ColumnSpacing="4"
+              BackgroundColor="{StaticResource Card}">
+            <Button Text="Inicio" FontSize="9" BackgroundColor="Transparent" TextColor="{StaticResource MutedText}" Clicked="OnDashboardClicked" />
+            <Button Grid.Column="1" Text="Mercado" FontSize="9" BackgroundColor="Transparent" TextColor="{StaticResource MutedText}" Clicked="OnMarketClicked" />
+            <Button Grid.Column="2" Text="Copiloto" FontSize="9" BackgroundColor="Transparent" TextColor="{StaticResource MutedText}" Clicked="OnCopilotClicked" />
+            <Button Grid.Column="3" Text="Mensajes" FontSize="9" FontAttributes="Bold" BackgroundColor="Transparent" TextColor="{StaticResource Neon}" />
+            <Button Grid.Column="4" Text="Perfil" FontSize="9" BackgroundColor="Transparent" TextColor="{StaticResource MutedText}" Clicked="OnProfileClicked" />
+        </Grid>
+    </Grid>
+</ContentPage>

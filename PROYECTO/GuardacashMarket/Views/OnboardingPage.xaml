@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GuardacashMarket.Views.OnboardingPage"
+             BackgroundColor="{StaticResource OnBlack}">
+    <Grid RowDefinitions="*,Auto,Auto" Padding="24" RowSpacing="0">
+
+        <Grid RowDefinitions="Auto,*,Auto">
+            <Border Style="{StaticResource CardNeon}" Margin="0,50,0,30" HeightRequest="300">
+                <Image Source="logo.png" Aspect="AspectFit" Margin="24" />
+            </Border>
+            <VerticalStackLayout Grid.Row="1" VerticalOptions="Center" Spacing="14">
+                <Label x:Name="SlideTitle" Style="{StaticResource PageTitle}" FontSize="26"
+                       HorizontalTextAlignment="Center" />
+                <Label x:Name="SlideBody" Style="{StaticResource Muted}" FontSize="14"
+                       HorizontalTextAlignment="Center" />
+            </VerticalStackLayout>
+            <Label Grid.Row="2" x:Name="DotLabel" Text="●  ○  ○" FontSize="12" TextColor="{StaticResource Neon}"
+                   HorizontalTextAlignment="Center" Margin="0,0,0,16" />
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Button x:Name="NextBtn" Text="Continuar" Style="{StaticResource BtnPrimary}" Clicked="OnNextClicked" />
+        </Grid>
+
+        <Label Grid.Row="2" HorizontalTextAlignment="Center" Margin="0,14,0,0">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="¿Ya tienes cuenta? " TextColor="{StaticResource MutedText}" />
+                    <Span Text="Ingresar" TextColor="{StaticResource Neon}" FontFamily="PoppinsSemiBold" TextDecorations="Underline">
+                        <Span.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnLoginTapped" />
+                        </Span.GestureRecognizers>
+                    </Span>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+    </Grid>
+</ContentPage>

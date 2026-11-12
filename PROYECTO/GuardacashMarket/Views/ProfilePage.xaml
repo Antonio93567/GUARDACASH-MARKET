@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GuardacashMarket.Views.ProfilePage"
+             BackgroundColor="{StaticResource OnBlack}"
+             Shell.NavBarIsVisible="False">
+    <Grid RowDefinitions="*,Auto">
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Padding="20" Spacing="14">
+
+                <Label Text="Mi perfil" Style="{StaticResource PageTitle}" FontSize="26" />
+
+                <Border Style="{StaticResource CardNeon}">
+                    <VerticalStackLayout Spacing="10" HorizontalOptions="Center">
+                        <Border BackgroundColor="{StaticResource Cobalt}" StrokeThickness="0"
+                                StrokeShape="RoundRectangle 40" WidthRequest="80" HeightRequest="80" Padding="0">
+                            <Label x:Name="AvatarLabel" Text="MG" TextColor="White" FontFamily="PoppinsBold"
+                                   FontSize="26" HorizontalOptions="Center" VerticalOptions="Center" />
+                        </Border>
+                        <Label x:Name="ProfileName" Text="María González" Style="{StaticResource SectionTitle}" FontSize="18" HorizontalTextAlignment="Center" />
+                        <Label x:Name="ProfileRole" Text="Emprendedora · Estelí" Style="{StaticResource Muted}" HorizontalTextAlignment="Center" />
+                        <Label x:Name="ProfileBalance" Text="C$ 18,430.50" Style="{StaticResource Positive}" FontSize="16" HorizontalTextAlignment="Center" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border Style="{StaticResource CardStyle}">
+                    <VerticalStackLayout Spacing="4">
+                        <Button Text="📊  Mis pedidos" FontSize="14" FontAttributes="Bold" BackgroundColor="Transparent"
+                                TextColor="{StaticResource LightText}" HorizontalOptions="Fill" Clicked="OnOrdersClicked" />
+                        <BoxView Style="{StaticResource DividerH}" />
+                        <Button Text="♡  Guardados" FontSize="14" FontAttributes="Bold" BackgroundColor="Transparent"
+                                TextColor="{StaticResource LightText}" HorizontalOptions="Fill" Clicked="OnSavedClicked" />
+                        <BoxView Style="{StaticResource DividerH}" />
+                        <Button Text="💼  Cambiar a vendedor" FontSize="14" FontAttributes="Bold" BackgroundColor="Transparent"
+                                TextColor="{StaticResource LightText}" HorizontalOptions="Fill" Clicked="OnSellerClicked" />
+                        <BoxView Style="{StaticResource DividerH}" />
+                        <Button Text="⚙  Configuración" FontSize="14" FontAttributes="Bold" BackgroundColor="Transparent"
+                                TextColor="{StaticResource LightText}" HorizontalOptions="Fill" Clicked="OnSettingsClicked" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <Button Text="Cerrar sesión" Style="{StaticResource BtnOutline}" Clicked="OnLogoutClicked" />
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <Grid Grid.Row="1" ColumnDefinitions="*,*,*,*,*" Padding="8,10,8,18" ColumnSpacing="4"
+              BackgroundColor="{StaticResource Card}">
+            <Button Text="Inicio" FontSize="9" BackgroundColor="Transparent" TextColor="{StaticResource MutedText}" Clicked="OnDashboardClicked" />
+            <Button Grid.Column="1" Text="Mercado" FontSize="9" BackgroundColor="Transparent" TextColor="{StaticResource MutedText}" Clicked="OnMarketClicked" />
+            <Button Grid.Column="2" Text="Copiloto" FontSize="9" BackgroundColor="Transparent" TextColor="{StaticResource MutedText}" Clicked="OnCopilotClicked" />
+            <Button Grid.Column="3" Text="Mensajes" FontSize="9" BackgroundColor="Transparent" TextColor="{StaticResource MutedText}" Clicked="OnMessagesClicked" />
+            <Button Grid.Column="4" Text="Perfil" FontSize="9" FontAttributes="Bold" BackgroundColor="Transparent" TextColor="{StaticResource Neon}" />
+        </Grid>
+    </Grid>
+</ContentPage>

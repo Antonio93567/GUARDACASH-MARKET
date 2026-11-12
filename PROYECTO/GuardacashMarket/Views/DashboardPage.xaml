@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:GuardacashMarket.Models"
+             x:Class="GuardacashMarket.Views.DashboardPage"
+             BackgroundColor="{StaticResource OnBlack}"
+             Shell.NavBarIsVisible="False">
+    <Grid RowDefinitions="*,Auto">
+        <ScrollView>
+            <VerticalStackLayout Padding="20" Spacing="14">
+
+                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="12">
+                    <VerticalStackLayout Spacing="2">
+                        <Label x:Name="GreetingLabel" Text="Buenos días," Style="{StaticResource SubSectionTitle}" />
+                        <Label x:Name="NameLabel" Text="María" Style="{StaticResource SectionTitle}" />
+                    </VerticalStackLayout>
+                    <Button Grid.Column="1" Text="🔔" Style="{StaticResource BtnOutline}" WidthRequest="52"
+                            HeightRequest="52" FontSize="18" Padding="0" Clicked="OnNotifyClicked" />
+                </Grid>
+
+                <Border Style="{StaticResource CardNeon}" Margin="0,6,0,0">
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Balance total" Style="{StaticResource SubSectionTitle}" />
+                        <Label x:Name="BalanceLabel" Text="C$ 18,430.50" Style="{StaticResource Amount}" />
+                        <Label Text="↑ +12.4% este mes" Style="{StaticResource Positive}" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="12" RowSpacing="12">
+                    <Button Grid.Row="0" Grid.Column="0" Text="📋  Cotizar" Style="{StaticResource BtnPrimary}" Clicked="OnCotizarClicked" />
+                    <Button Grid.Row="0" Grid.Column="1" Text="💵  Registrar" Style="{StaticResource BtnCobalt}" Clicked="OnGananciaClicked" />
+                    <Button Grid.Row="1" Grid.Column="0" Text="📈  Invertir" Style="{StaticResource BtnSell}" Clicked="OnInvestClicked" />
+                    <Button Grid.Row="1" Grid.Column="1" Text="🌟  Promocionar" Style="{StaticResource BtnOutline}" Clicked="OnPromoClicked" />
+                </Grid>
+
+                <Label Text="Ganancias recientes" Style="{StaticResource SectionTitle}" Margin="0,8,0,0" />
+                <CollectionView x:Name="GainsView" SelectionMode="None">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="local:Gain">
+                            <Border Style="{StaticResource CardStyle}" Margin="0,0,0,10">
+                                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+                                    <VerticalStackLayout Spacing="3">
+                                        <Label Text="{Binding Description}" Style="{StaticResource SectionTitle}" FontSize="14" />
+                                        <Label Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}" Style="{StaticResource Muted}" FontSize="11" />
+                                    </VerticalStackLayout>
+                                    <VerticalStackLayout Grid.Column="1" Spacing="3" HorizontalOptions="End">
+                                        <Label Text="{Binding Amount, StringFormat='C$ {0:N0}'}" Style="{StaticResource AmountSmall}" TextColor="{StaticResource Growth}" />
+                                        <Label Text="{Binding Profit, StringFormat='Ganancia C$ {0:N0}'}" Style="{StaticResource Muted}" FontSize="11" />
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <Grid Grid.Row="1" ColumnDefinitions="*,*,*,*,*" Padding="8,10,8,18" ColumnSpacing="4"
+              BackgroundColor="{StaticResource Card}">
+            <Button Text="Inicio" FontSize="9" FontAttributes="Bold" BackgroundColor="Transparent"
+                    TextColor="{StaticResource Neon}" Clicked="OnTabClicked" />
+            <Button Grid.Column="1" Text="Mercado" FontSize="9" BackgroundColor="Transparent"
+                    TextColor="{StaticResource MutedText}" Clicked="OnMarketClicked" />
+            <Button Grid.Column="2" Text="Copiloto" FontSize="9" BackgroundColor="Transparent"
+                    TextColor="{StaticResource MutedText}" Clicked="OnCopilotClicked" />
+            <Button Grid.Column="3" Text="Mensajes" FontSize="9" BackgroundColor="Transparent"
+                    TextColor="{StaticResource MutedText}" Clicked="OnMessagesClicked" />
+            <Button Grid.Column="4" Text="Perfil" FontSize="9" BackgroundColor="Transparent"
+                    TextColor="{StaticResource MutedText}" Clicked="OnProfileClicked" />
+        </Grid>
+    </Grid>
+</ContentPage>

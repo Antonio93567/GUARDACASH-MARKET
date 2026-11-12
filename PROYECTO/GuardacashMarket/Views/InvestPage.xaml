@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:GuardacashMarket.Models"
+             x:Class="GuardacashMarket.Views.InvestPage"
+             BackgroundColor="{StaticResource OnBlack}"
+             Shell.NavBarIsVisible="False">
+    <Grid RowDefinitions="Auto,*,Auto">
+        <Grid Grid.Row="0" ColumnDefinitions="Auto,*" Padding="16,16,16,0" ColumnSpacing="10">
+            <Button Text="‹" Style="{StaticResource BtnOutline}" WidthRequest="48" HeightRequest="48" Padding="0" FontSize="22" Clicked="OnBackClicked" />
+            <Label Grid.Column="1" Text="Invertir" Style="{StaticResource PageTitle}" FontSize="24" VerticalOptions="Center" />
+        </Grid>
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="20" Spacing="14">
+
+                <Border Style="{StaticResource CardNeon}">
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Reinvierte tus ganancias" Style="{StaticResource SectionTitle}" FontSize="16" />
+                        <Label Text="Impulsa tu negocio poniendo tu capital a trabajar. (Simulación con montos ficticios)"
+                               Style="{StaticResource Muted}" FontSize="12" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border Style="{StaticResource CardStyle}">
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="Nueva inversión" Style="{StaticResource SectionTitle}" FontSize="16" />
+
+                        <Label Text="Área de inversión" Style="{StaticResource SubSectionTitle}" />
+                        <Picker x:Name="AreaPicker" Title="Selecciona un área" BackgroundColor="{StaticResource Card}"
+                                TextColor="{StaticResource LightText}" TitleColor="{StaticResource MutedText}">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Materiales · Inventario</x:String>
+                                    <x:String>Marketing · Publicidad</x:String>
+                                    <x:String>Equipamiento</x:String>
+                                    <x:String>Capacitación</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+
+                        <Label Text="Monto a invertir (C$)" Style="{StaticResource SubSectionTitle}" />
+                        <Entry x:Name="AmountEntry" Placeholder="0.00" Keyboard="Numeric" Style="{StaticResource NeonEntry}" />
+
+                        <Label Text="Retorno esperado (anual simulada)" Style="{StaticResource SubSectionTitle}" />
+                        <Picker x:Name="ReturnPicker" BackgroundColor="{StaticResource Card}"
+                                TextColor="{StaticResource LightText}" TitleColor="{StaticResource MutedText}">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>15%</x:String>
+                                    <x:String>18%</x:String>
+                                    <x:String>20%</x:String>
+                                    <x:String>25%</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+
+                        <Button Text="Simular inversión" Style="{StaticResource BtnSell}" Clicked="OnInvestClicked" />
+
+                        <BoxView Style="{StaticResource DividerH}" />
+                        <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                            <VerticalStackLayout Spacing="4">
+                                <Label Text="Proyección" Style="{StaticResource Muted}" FontSize="11" />
+                                <Label x:Name="ProjLabel" Text="C$ 0.00" Style="{StaticResource Positive}" FontSize="16" />
+                            </VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="1" Spacing="4">
+                                <Label Text="Ganancia estimada" Style="{StaticResource Muted}" FontSize="11" />
+                                <Label x:Name="GainLabel" Text="C$ 0.00" Style="{StaticResource Positive}" FontSize="16" />
+                            </VerticalStackLayout>
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Label Text="Inversiones activas" Style="{StaticResource SectionTitle}" FontSize="16" />
+                <CollectionView x:Name="InvView" SelectionMode="None">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="local:Investment">
+                            <Border Style="{StaticResource CardStyle}" Margin="0,0,0,10">
+                                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+                                    <VerticalStackLayout Spacing="3">
+                                        <Label Text="{Binding Label}" Style="{StaticResource SectionTitle}" FontSize="13" />
+                                        <Label Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}" Style="{StaticResource Muted}" FontSize="11" />
+                                    </VerticalStackLayout>
+                                    <VerticalStackLayout Grid.Column="1" HorizontalOptions="End" Spacing="3">
+                                        <Label Text="{Binding Amount, StringFormat='C$ {0:N0}'}" Style="{StaticResource AmountSmall}" />
+                                        <Label Text="{Binding ProjectedProfit, StringFormat='+ C$ {0:N0}'}" Style="{StaticResource Positive}" FontSize="12" />
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <Grid Grid.Row="2" Padding="20,10,20,22" BackgroundColor="{StaticResource OnBlack}">
+            <Button Text="Ir a mi negocio" Style="{StaticResource BtnPrimary}" Clicked="OnDashboardClicked" />
+        </Grid>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="GuardacashMarket.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:GuardacashMarket.Views"
+    Title="GUARDACASH MARKET"
+    Shell.NavBarIsVisible="False">
+
+    <ShellContent Title="Splash" ContentTemplate="{DataTemplate views:SplashPage}" Route="Splash" />
+    <ShellContent Title="Onboarding" ContentTemplate="{DataTemplate views:OnboardingPage}" Route="Onboarding" />
+    <ShellContent Title="Login" ContentTemplate="{DataTemplate views:LoginPage}" Route="Login" />
+    <ShellContent Title="Registro" ContentTemplate="{DataTemplate views:RegisterPage}" Route="Register" />
+    <ShellContent Title="Dashboard" ContentTemplate="{DataTemplate views:DashboardPage}" Route="Dashboard" />
+    <ShellContent Title="Mercado" ContentTemplate="{DataTemplate views:MarketPage}" Route="Market" />
+    <ShellContent Title="Detalle" ContentTemplate="{DataTemplate views:ServiceDetailPage}" Route="Detail" />
+    <ShellContent Title="Copiloto" ContentTemplate="{DataTemplate views:CopilotPage}" Route="Copilot" />
+    <ShellContent Title="Mensajes" ContentTemplate="{DataTemplate views:MessagesPage}" Route="Messages" />
+    <ShellContent Title="Chat" ContentTemplate="{DataTemplate views:ChatPage}" Route="Chat" />
+    <ShellContent Title="Perfil" ContentTemplate="{DataTemplate views:ProfilePage}" Route="Profile" />
+    <ShellContent Title="Configuración" ContentTemplate="{DataTemplate views:SettingsPage}" Route="Settings" />
+    <ShellContent Title="Invertir" ContentTemplate="{DataTemplate views:InvestPage}" Route="Invest" />
+
+</Shell>

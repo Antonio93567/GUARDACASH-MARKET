@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!-- ===== GUARDACASH MARKET · Estilo fintech neón (dark) ===== -->
+
+    <Style TargetType="Page" ApplyToDerivedTypes="True">
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource OnBlack}" />
+    </Style>
+
+    <Style TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource LightText}" />
+        <Setter Property="FontFamily" Value="Poppins" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+    </Style>
+
+    <!-- Títulos -->
+    <Style TargetType="Label" x:Key="PageTitle">
+        <Setter Property="FontFamily" Value="PoppinsBold" />
+        <Setter Property="FontSize" Value="28" />
+        <Setter Property="TextColor" Value="{StaticResource Neon}" />
+        <Setter Property="FontAttributes" Value="Bold" />
+    </Style>
+    <Style TargetType="Label" x:Key="SectionTitle">
+        <Setter Property="FontFamily" Value="PoppinsSemiBold" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="TextColor" Value="{StaticResource LightText}" />
+    </Style>
+    <Style TargetType="Label" x:Key="SubSectionTitle">
+        <Setter Property="FontFamily" Value="PoppinsMedium" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="TextColor" Value="{StaticResource MutedText}" />
+    </Style>
+    <Style TargetType="Label" x:Key="Muted">
+        <Setter Property="FontFamily" Value="Poppins" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="TextColor" Value="{StaticResource MutedText}" />
+    </Style>
+    <Style TargetType="Label" x:Key="Amount">
+        <Setter Property="FontFamily" Value="Montserrat" />
+        <Setter Property="FontSize" Value="34" />
+        <Setter Property="TextColor" Value="{StaticResource Neon}" />
+        <Setter Property="FontAttributes" Value="Bold" />
+    </Style>
+    <Style TargetType="Label" x:Key="AmountSmall">
+        <Setter Property="FontFamily" Value="Montserrat" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontAttributes" Value="Bold" />
+    </Style>
+    <Style TargetType="Label" x:Key="Positive">
+        <Setter Property="FontFamily" Value="Montserrat" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="TextColor" Value="{StaticResource Growth}" />
+        <Setter Property="FontAttributes" Value="Bold" />
+    </Style>
+    <Style TargetType="Label" x:Key="Negative">
+        <Setter Property="FontFamily" Value="Montserrat" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="TextColor" Value="{StaticResource RedDown}" />
+        <Setter Property="FontAttributes" Value="Bold" />
+    </Style>
+
+    <!-- Botones pill -->
+    <Style TargetType="Button" x:Key="BtnPrimary">
+        <Setter Property="BackgroundColor" Value="{StaticResource Neon}" />
+        <Setter Property="TextColor" Value="#000000" />
+        <Setter Property="FontFamily" Value="PoppinsSemiBold" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="CornerRadius" Value="28" />
+        <Setter Property="HeightRequest" Value="54" />
+        <Setter Property="Padding" Value="20,0" />
+        <Setter Property="BorderWidth" Value="0" />
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Pressed">
+                        <VisualState.Setters>
+                            <Setter Property="Opacity" Value="0.8" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+    <Style TargetType="Button" x:Key="BtnSell">
+        <Setter Property="BackgroundColor" Value="{StaticResource Magenta}" />
+        <Setter Property="TextColor" Value="#FFFFFF" />
+        <Setter Property="FontFamily" Value="PoppinsSemiBold" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="CornerRadius" Value="28" />
+        <Setter Property="HeightRequest" Value="54" />
+        <Setter Property="Padding" Value="20,0" />
+        <Setter Property="BorderWidth" Value="0" />
+    </Style>
+    <Style TargetType="Button" x:Key="BtnOutline">
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="TextColor" Value="{StaticResource Neon}" />
+        <Setter Property="FontFamily" Value="PoppinsSemiBold" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="CornerRadius" Value="26" />
+        <Setter Property="HeightRequest" Value="50" />
+        <Setter Property="Padding" Value="18,0" />
+        <Setter Property="BorderColor" Value="{StaticResource Neon}" />
+        <Setter Property="BorderWidth" Value="1.5" />
+    </Style>
+    <Style TargetType="Button" x:Key="BtnCobalt">
+        <Setter Property="BackgroundColor" Value="{StaticResource Cobalt}" />
+        <Setter Property="TextColor" Value="#FFFFFF" />
+        <Setter Property="FontFamily" Value="PoppinsSemiBold" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="CornerRadius" Value="26" />
+        <Setter Property="HeightRequest" Value="52" />
+        <Setter Property="Padding" Value="18,0" />
+        <Setter Property="BorderWidth" Value="0" />
+    </Style>
+
+    <!-- Entradas -->
+    <Style TargetType="Entry" x:Key="NeonEntry">
+        <Setter Property="TextColor" Value="{StaticResource LightText}" />
+        <Setter Property="PlaceholderColor" Value="{StaticResource MutedText}" />
+        <Setter Property="BackgroundColor" Value="{StaticResource Card}" />
+        <Setter Property="FontFamily" Value="Poppins" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="HeightRequest" Value="52" />
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Focused">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="{StaticResource Card2}" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+
+    <Style TargetType="Editor" x:Key="NeonEditor">
+        <Setter Property="TextColor" Value="{StaticResource LightText}" />
+        <Setter Property="PlaceholderColor" Value="{StaticResource MutedText}" />
+        <Setter Property="BackgroundColor" Value="{StaticResource Card}" />
+        <Setter Property="FontFamily" Value="Poppins" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+
+    <!-- Tarjeta -->
+    <Style TargetType="Border" x:Key="CardStyle">
+        <Setter Property="BackgroundColor" Value="{StaticResource Card}" />
+        <Setter Property="Stroke" Value="{StaticResource Line}" />
+        <Setter Property="StrokeThickness" Value="1" />
+        <Setter Property="StrokeShape" Value="RoundRectangle 16" />
+        <Setter Property="Padding" Value="18" />
+    </Style>
+    <Style TargetType="Border" x:Key="CardNeon">
+        <Setter Property="BackgroundColor" Value="{StaticResource Card}" />
+        <Setter Property="Stroke" Value="{StaticResource Neon}" />
+        <Setter Property="StrokeThickness" Value="1.5" />
+        <Setter Property="StrokeShape" Value="RoundRectangle 18" />
+        <Setter Property="Padding" Value="18" />
+        <Setter Property="Shadow">
+            <Setter.Value>
+                <Shadow Brush="#6600FFFF" Offset="0,0" Radius="18" Opacity="0.6" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="BoxView" x:Key="DividerH">
+        <Setter Property="Color" Value="{StaticResource Line}" />
+        <Setter Property="HeightRequest" Value="1" />
+    </Style>
+
+</ResourceDictionary>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:GuardacashMarket.Models"
+             x:Class="GuardacashMarket.Views.MarketPage"
+             BackgroundColor="{StaticResource OnBlack}"
+             Shell.NavBarIsVisible="False">
+    <Grid RowDefinitions="*,Auto">
+        <Grid Grid.Row="0" RowDefinitions="Auto,Auto,*,Auto">
+            <VerticalStackLayout Padding="20,20,20,0" Spacing="4">
+                <Label Text="Mercado de servicios" Style="{StaticResource PageTitle}" FontSize="24" />
+                <Label Text="Descubre talentos de la comunidad" Style="{StaticResource Muted}" />
+            </VerticalStackLayout>
+
+            <Grid Grid.Row="1" ColumnDefinitions="*,Auto" ColumnSpacing="10" Padding="20,10,20,0">
+                <SearchBar x:Name="Search" Placeholder="Buscar servicios..." BackgroundColor="{StaticResource Card}"
+                           TextColor="{StaticResource LightText}" PlaceholderColor="{StaticResource MutedText}" />
+                <Button Grid.Column="1" Text="⚙" Style="{StaticResource BtnOutline}" WidthRequest="52" HeightRequest="52" Padding="0" />
+            </Grid>
+
+            <CollectionView Grid.Row="2" x:Name="ServicesView" Margin="20,14,20,10" SelectionMode="Single"
+                            SelectionChanged="OnServiceSelected">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="local:Service">
+                        <Border Style="{StaticResource CardStyle}" Margin="0,0,0,12">
+                            <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="14">
+                                <Border BackgroundColor="{StaticResource Card2}" StrokeThickness="0"
+                                        StrokeShape="RoundRectangle 12" Padding="14" VerticalOptions="Center">
+                                    <Label Text="{Binding Icon}" FontSize="24" />
+                                </Border>
+                                <VerticalStackLayout Grid.Column="1" Spacing="4" VerticalOptions="Center">
+                                    <Label Text="{Binding Name}" Style="{StaticResource SectionTitle}" FontSize="14" />
+                                    <Label Text="{Binding OwnerName}" Style="{StaticResource Muted}" FontSize="12" />
+                                    <HorizontalStackLayout Spacing="4">
+                                        <Label Text="{Binding Category}" Style="{StaticResource Muted}" FontSize="11" />
+                                        <Label Text="★ " TextColor="{StaticResource Neon}" FontSize="11" />
+                                        <Label Text="{Binding Rating, StringFormat='{0:N1}'}" TextColor="{StaticResource Neon}" FontSize="11" FontAttributes="Bold" />
+                                    </HorizontalStackLayout>
+                                </VerticalStackLayout>
+                                <VerticalStackLayout Grid.Column="2" Spacing="4" HorizontalOptions="End" VerticalOptions="Center">
+                                    <Label Text="{Binding Price, StringFormat='C$ {0:N0}'}" Style="{StaticResource AmountSmall}" />
+                                    <Label Text="{Binding ChangeDisplay}" FontSize="12" FontAttributes="Bold"
+                                           TextColor="{StaticResource Growth}">
+                                        <Label.Triggers>
+                                            <DataTrigger TargetType="Label" Binding="{Binding IsPositive}" Value="False">
+                                                <Setter Property="TextColor" Value="{StaticResource RedDown}" />
+                                            </DataTrigger>
+                                        </Label.Triggers>
+                                    </Label>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+
+        <Grid Grid.Row="1" ColumnDefinitions="*,*,*,*,*" Padding="8,10,8,18" ColumnSpacing="4"
+              BackgroundColor="{StaticResource Card}">
+            <Button Text="Inicio" FontSize="9" BackgroundColor="Transparent" TextColor="{StaticResource MutedText}" Clicked="OnDashboardClicked" />
+            <Button Grid.Column="1" Text="Mercado" FontSize="9" FontAttributes="Bold" BackgroundColor="Transparent" TextColor="{StaticResource Neon}" />
+            <Button Grid.Column="2" Text="Copiloto" FontSize="9" BackgroundColor="Transparent" TextColor="{StaticResource MutedText}" Clicked="OnCopilotClicked" />
+            <Button Grid.Column="3" Text="Mensajes" FontSize="9" BackgroundColor="Transparent" TextColor="{StaticResource MutedText}" Clicked="OnMessagesClicked" />
+            <Button Grid.Column="4" Text="Perfil" FontSize="9" BackgroundColor="Transparent" TextColor="{StaticResource MutedText}" Clicked="OnProfileClicked" />
+        </Grid>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!-- GUARDACASH MARKET · Paleta neón -->
+    <Color x:Key="Neon">#00FFFF</Color>
+    <Color x:Key="Cobalt">#1E40AF</Color>
+    <Color x:Key="Growth">#33CD31</Color>
+    <Color x:Key="OnBlack">#000000</Color>
+    <Color x:Key="LightText">#E0E6ED</Color>
+    <Color x:Key="Magenta">#B6018B</Color>
+
+    <!-- Derivados / estados -->
+    <Color x:Key="NeonDim">#33FFFF</Color>
+    <Color x:Key="Card">#0E1418</Color>
+    <Color x:Key="Card2">#151D24</Color>
+    <Color x:Key="Line">#22303A</Color>
+    <Color x:Key="MutedText">#8A9AA8</Color>
+    <Color x:Key="RedDown">#FF4D4D</Color>
+
+    <!-- Compatibilidad genérica -->
+    <Color x:Key="Primary">#00FFFF</Color>
+    <Color x:Key="PrimaryDark">#000000</Color>
+    <Color x:Key="PrimaryDarkText">#E0E6ED</Color>
+    <Color x:Key="Secondary">#1E40AF</Color>
+    <Color x:Key="SecondaryDarkText">#E0E6ED</Color>
+    <Color x:Key="Tertiary">#B6018B</Color>
+    <Color x:Key="White">White</Color>
+    <Color x:Key="Black">Black</Color>
+    <Color x:Key="OffBlack">#0E1418</Color>
+    <Color x:Key="Gray100">#E0E6ED</Color>
+    <Color x:Key="Gray200">#C8CFD7</Color>
+    <Color x:Key="Gray300">#8A9AA8</Color>
+    <Color x:Key="Gray400">#6E7C88</Color>
+    <Color x:Key="Gray500">#4A5560</Color>
+    <Color x:Key="Gray600">#22303A</Color>
+    <Color x:Key="Gray900">#151D24</Color>
+    <Color x:Key="Gray950">#0E1418</Color>
+
+    <SolidColorBrush x:Key="NeonBrush" Color="{StaticResource Neon}"/>
+    <SolidColorBrush x:Key="CobaltBrush" Color="{StaticResource Cobalt}"/>
+    <SolidColorBrush x:Key="GrowthBrush" Color="{StaticResource Growth}"/>
+    <SolidColorBrush x:Key="OnBlackBrush" Color="{StaticResource OnBlack}"/>
+    <SolidColorBrush x:Key="LightTextBrush" Color="{StaticResource LightText}"/>
+    <SolidColorBrush x:Key="MagentaBrush" Color="{StaticResource Magenta}"/>
+
+    <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Neon}"/>
+    <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Cobalt}"/>
+    <SolidColorBrush x:Key="TertiaryBrush" Color="{StaticResource Magenta}"/>
+    <SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource White}"/>
+    <SolidColorBrush x:Key="BlackBrush" Color="{StaticResource Black}"/>
+</ResourceDictionary>

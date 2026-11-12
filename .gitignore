@@ -1,0 +1,29 @@
+# Build artifacts
+**/bin/
+**/obj/
+
+# IDE
+.vs/
+.idea/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Credentials and secrets (never commit)
+.env
+.env.*
+*.keystore
+*.jks
+*.pfx
+*.p12
+*.key
+*.pem
+secrets.json
+*credential*
+*secret*
